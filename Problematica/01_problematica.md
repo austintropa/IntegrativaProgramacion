@@ -174,7 +174,6 @@ De acuerdo con las condiciones de trabajo comunicadas para el proyecto, esta pro
 
 ## 14. Aspectos pendientes de definición
 
-- Confirmar con el docente la autorización para trabajar en equipos de dos integrantes.
 - Revisar el documento oficial y verificar los requisitos aplicables.
 - Formular y revisar el objetivo general y los objetivos específicos.
 - Determinar las categorías y cantidades de productos que tendrá la tienda ficticia.
