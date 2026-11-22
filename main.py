@@ -26,5 +26,37 @@ def MostrarDatosExcel():
     except (OSError, ValueError, ImportError) as Error:
         print("No se pudo leer el archivo Excel:", Error)
 
+def ConstruirMatrizVentas(DatosVentas):
+    MatrizVentas = []
+    CodigosProductos = []
+
+    Semanas = ["SEMANA_1", "SEMANA_2", "SEMANA_3", "SEMANA_4"]
+
+    for i in range(len(DatosVentas)):
+        FilaVentas = []
+
+        Codigo = DatosVentas["Codigo"].iloc[i]
+        CodigosProductos.append(Codigo)
+
+        for Semana in Semanas:
+            Cantidad = int(DatosVentas[Semana].iloc[i])
+            FilaVentas.append(Cantidad)
+
+        MatrizVentas.append(FilaVentas)
+
+    return MatrizVentas, CodigosProductos
+
 
 MostrarDatosExcel()
+
+print("\n--- MATRIZ DE VENTAS ---")
+
+DatosVentas = pd.read_excel(RutaExcel, sheet_name="Ventas")
+
+MatrizVentas, CodigosProductos = ConstruirMatrizVentas(DatosVentas)
+
+for i in range(len(MatrizVentas)):
+    print(CodigosProductos[i], MatrizVentas[i])
+
+print("\nCantidad de productos:", len(MatrizVentas))
+print("Cantidad de semanas:", len(MatrizVentas[0]))
